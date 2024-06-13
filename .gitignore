@@ -1,0 +1,15 @@
+# Ignore macOS DS_Store files
+.DS_Store
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files and environment files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# Ignore Cypress screenshots and videos
+cypress/screenshots/
+cypress/videos/
