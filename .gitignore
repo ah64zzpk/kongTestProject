@@ -13,3 +13,4 @@ yarn-error.log*
 # Ignore Cypress screenshots and videos
 cypress/screenshots/
 cypress/videos/
+cypress/reports/
