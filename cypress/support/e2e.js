@@ -15,6 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-
+import '../api/clearServices';
+import '../api/clearRoutes'; 
+import '../api/addServices'; 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

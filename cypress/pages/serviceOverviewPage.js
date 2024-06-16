@@ -44,7 +44,7 @@ class ServiceOverviewPage {
 
     checkInGatewayOverviewPage(){
       this.getGatewayPageTitle().should('be.visible');
-  }
+    }
 
     clickActionButton(index) {
       this.getActionButton(index).click();
@@ -87,17 +87,6 @@ class ServiceOverviewPage {
       });
     }
   
-    // Method to iterate and delete all services
-    deleteAllServices() {
-      cy.dataTestId('overflow-actions-button').then(($buttons) => {
-        const count = $buttons.length;
-        for (let i = 0; i < count; i++) {
-          this.deleteService(0);
-          // Wait for deletion to complete before moving to the next one
-          cy.wait(1000); // Adjust wait time as needed
-        }
-      });
-    }
   }
   
   export default ServiceOverviewPage;
