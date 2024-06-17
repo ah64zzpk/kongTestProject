@@ -21,7 +21,7 @@ describe('Kong Manage Service Page Test', () => {
     
     serviceOverviewPage.visitGatewayPage();
     cy.log('visit gateway overview page');
-    serviceOverviewPage.getNewGatewayServiceButton().should('be.visible').click();
+    serviceOverviewPage.addFirstService();
     serviceAddPage.checkInAddGatewayPage();
     cy.log('click add new service button and verify enter entering adding new service page OK');
     serviceAddPage.inputGatewayName(serviceDataSet.name);

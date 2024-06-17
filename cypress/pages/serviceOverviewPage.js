@@ -1,6 +1,6 @@
 class ServiceOverviewPage {
     //getter function
-    getNewGatewayServiceButton() {
+    getFirstGatewayServiceBtn() {
       return cy.dataTestId('new-gateway-service');
     }
 
@@ -40,6 +40,10 @@ class ServiceOverviewPage {
     visitGatewayPage(){
         cy.visit('/services');
         this.checkInGatewayOverviewPage();
+    }
+
+    addFirstService(){
+      this.getFirstGatewayServiceBtn.should('be.visible').click();
     }
 
     checkInGatewayOverviewPage(){

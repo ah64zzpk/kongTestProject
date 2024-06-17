@@ -4,7 +4,7 @@ class RouteOverviewPage{
         return cy.get('.title').contains('Routes');
     }
 
-    getAddNewRoueteBtnEmpty(){
+    getAddFirstRoueteBtn(){
         return cy.dataTestId('new-route').should('be.visible');
     }
 
@@ -16,6 +16,10 @@ class RouteOverviewPage{
 
     checkInRouteOverviewPage(){
         this.getRouteOverviewTitle().should('be.visible');
+    }
+
+    addFirstRoute(){
+        this.getAddFirstRoueteBtn().click();
     }
 }
 export default RouteOverviewPage;
