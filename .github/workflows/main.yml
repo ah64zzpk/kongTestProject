@@ -36,16 +36,12 @@ jobs:
           docker-compose -v
           docker-compose up -d
 
-      - name: Wait for the services to be up
-        run: |
-          while ! curl -sSf http://localhost:8002/ > /dev/null; do
-            echo "Waiting for service at http://localhost:8002 to be up..."
-            sleep 5
-          done
-
       - name: Run Cypresss Tests
         uses: cypress-io/github-action@v6
         continue-on-error: true
+        with:
+          wait-on: http://localhost:8002
+          wait-on-timeout: 60
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
