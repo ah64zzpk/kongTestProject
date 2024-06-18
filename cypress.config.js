@@ -7,14 +7,11 @@ module.exports = defineConfig({
       apiBaseUrl: 'http://localhost:8001/' // Base URL for API operations
     }
   },
-  reporter: 'cypress-multi-reporters',
+  reporter: 'mochawesome',
   reporterOptions: {
-    reporterEnabled: 'mochawesome',
-    mochawesomeReporterOptions: {
       reportDir: 'cypress/reports',
       overwrite: false,
       html: true,
       json: true
-    }
   }
 });
