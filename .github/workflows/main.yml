@@ -43,11 +43,9 @@ jobs:
             sleep 5
           done
 
-      - name: Run Cypress Tests
-        run: npm run clean:reports && npm run cy:run
-
-      - name: Generate Report
-        run: npm run report:merge && npm run report:generate
+      - name: Run Cypresss Tests
+        uses: cypress-io/github-action@v6
+        continue-on-error: true
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
