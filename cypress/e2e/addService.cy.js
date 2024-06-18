@@ -4,13 +4,16 @@ import ServiceAddPage from '../pages/serviceAddPage';
 const serviceDataSet = {
   name: 'customerService',
   tag: 'customer',
-  upstreamUrl: 'https://api.mycompany.com/customers'
+  upstreamUrl: 'https://api.mycompany.com/customers',
+  protocol: 'https',
+  enabledStatus: true
 }
 describe('Kong Manage Service Page Test', () => {
   const serviceOverviewPage = new ServiceOverviewPage();
   const serviceAddPage = new ServiceAddPage();
 
   beforeEach(() => {
+    cy.clearRoutes(); // Clear all routes before test
     cy.clearServices(); // Clear all services before each test
     cy.on('uncaught:exception', (err, runnable) => {
       return false
@@ -43,5 +46,9 @@ describe('Kong Manage Service Page Test', () => {
     serviceAddPage.clickGatewaySaveBtn();
     serviceOverviewPage.checkInGatewayOverviewPage();
     cy.log('Save new service OK');
+    serviceOverviewPage.checkServiceProtocalByName(serviceDataSet.name,serviceDataSet.protocol);
+    cy.log('Check created service default protocol');
+    serviceOverviewPage.checkServiceEnableStatusByName(serviceDataSet.name,serviceDataSet.enabledStatus);
+    cy.log('Check created service default enable status');
   })
 })

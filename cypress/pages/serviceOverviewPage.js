@@ -36,6 +36,18 @@ class ServiceOverviewPage {
       return cy.dataTestId('modal-action-button');
     }
 
+    getServiceRowByName(serviceName){
+      return cy.get(`tr[data-testid="${serviceName}"]`)
+    }
+
+    getServiceRowProtocolByName(serviceName){
+      return this.getServiceRowByName(serviceName).find(`td[data-testid="protocol"]`);
+    }
+
+    getServiceRowEnabledByName(serviceName){
+      return this.getServiceRowByName(serviceName).find(`td[data-testid="enabled"]`);
+    }
+
     //action function
     visitGatewayPage(){
         cy.visit('/services');
@@ -77,6 +89,19 @@ class ServiceOverviewPage {
   
     clickConfirmDeleteButton() {
       this.getConfirmDeleteButton().should('not.be.disabled').click();
+    }
+
+    checkServiceProtocalByName(serviceName,protocol){
+      this.getServiceRowProtocolByName(serviceName)
+      .find('span')
+      .should('contain.text', protocol);
+    }
+
+    checkServiceEnableStatusByName(serviceName,status){
+      this.getServiceRowEnabledByName(serviceName)
+      .find('span[data-testid="switch-control"]')
+      .invoke('attr', 'aria-checked')
+      .should('equal', status.toString());
     }
   
     // Method to perform the delete sequence for a specific service
