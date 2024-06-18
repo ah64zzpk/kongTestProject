@@ -43,7 +43,7 @@ class ServiceOverviewPage {
     }
 
     addFirstService(){
-      this.getFirstGatewayServiceBtn.should('be.visible').click();
+      this.getFirstGatewayServiceBtn().should('be.visible').click();
     }
 
     checkInGatewayOverviewPage(){

@@ -17,8 +17,15 @@ describe('Kong Manage Service Page Test', () => {
     });
   });
 
-  it('visit service page, add new service, finally save successfully', () => {
+  it.skip('visit service page, add new service and cancel it should back to overview page', ()=>{
+
+  })
+
+  it.skip('add new service without upstream URL as mandantory field, save button should be disabled', ()=>{
     
+  })
+
+  it('visit service page, add new service, finally save successfully', () => {
     serviceOverviewPage.visitGatewayPage();
     cy.log('visit gateway overview page');
     serviceOverviewPage.addFirstService();

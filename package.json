@@ -1,9 +1,13 @@
 {
+  "name": "kong-test-project",
+  "version": "1.0.0",
+  "author": "",
   "scripts": {
     "cy:open": "cypress open",
     "clean:reports": "rm -rf cypress/reports/*",
     "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/report.json",
-    "report:generate": "marge cypress/reports/report.json -f report -o cypress/reports"
+    "report:generate": "marge cypress/reports/report.json -f report -o cypress/reports",
+    "cy:run": "cypress run"
   },
   "devDependencies": {
     "cypress": "^13.11.0",
