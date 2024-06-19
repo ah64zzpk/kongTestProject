@@ -1,5 +1,4 @@
-import RouteOverviewPage from '../pages/routeOverviewPage';
-import RouteAddPage from '../pages/routeAddPage';
+import { routeDomain } from '../domains/routeDomain';
 
 const routeDataSet = {
   name: 'customerCreate',
@@ -14,8 +13,6 @@ const serviceDataSet = {
   }
 
 describe('Kong Manager Route Page Test', () => {
-    const routeOverviewPage = new RouteOverviewPage();
-    const routeAddPage = new RouteAddPage();
     let serviceId = null;
     before(() => {
         cy.clearRoutes(); // Clear all routes before test
@@ -34,25 +31,17 @@ describe('Kong Manager Route Page Test', () => {
 
     it('visit route overview page, add new route, finally save successfully', () => {
         const serviceIdSet = serviceId;
-        routeOverviewPage.visitRouteOverviewPage();
-        cy.log('visit route overview page');
-        routeOverviewPage.addFirstRoute();
-        routeAddPage.checkInRouteAddPage();
-        cy.log('Click button to create first route');
-        routeAddPage.inputRouteName(routeDataSet.name);
-        routeAddPage.checkRouteName(routeDataSet.name);
-        cy.log('Input route name and check input box has value');
-        routeAddPage.selectRouteService(serviceIdSet);
+        routeDomain.visitRouteOverviewPage();
+        routeDomain.addFirstRoute();
+        routeDomain.setRouteNameWithCheck(routeDataSet.name);
+        cy.log(`set route name with value ${routeDataSet.name}`);
+        routeDomain.selectRouteServiceWitchCheck(serviceIdSet);
         cy.log(`select service from dropdown option with id as ${serviceIdSet}`);
-        routeAddPage.inputRouteTag(routeDataSet.tag);
-        routeAddPage.checkRouteTagInput(routeDataSet.tag);
-        cy.log('Input route tag and check input box has value');
-        routeAddPage.inputRoutePath(routeDataSet.path);
-        routeAddPage.checkRoutePathInput(routeDataSet.path);;
-        cy.log('Input route path and check input box has value');
-        routeAddPage.saveRoute();
-        routeOverviewPage.checkInRouteOverviewPage();
-        cy.log('Save added route OK');
+        routeDomain.setRouteTagWithCheck(routeDataSet.tag);
+        cy.log(`set route tag with value ${routeDataSet.tag}`);
+        routeDomain.setRoutePathWithCheck(routeDataSet.path);
+        cy.log(`set route path with value ${routeDataSet.path}`);
+        routeDomain.saveRoute();
     })
 
     after(() => {

@@ -18,8 +18,8 @@ class RouteOverviewPage{
         this.getRouteOverviewTitle().should('be.visible');
     }
 
-    addFirstRoute(){
+    clickAddFirstRouteBtn(){
         this.getAddFirstRoueteBtn().click();
     }
 }
-export default RouteOverviewPage;
+export const routeOverviewPage = new RouteOverviewPage();

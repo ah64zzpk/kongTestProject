@@ -50,15 +50,17 @@ class RouteAddPage{
         this.getRouteNameInput().should('have.value', name);
     }
 
-    checkRouteServiceInput(serivceId) {
-        this.getRouteServiceSelectionInput().invoke('val').should('contain', serivceId);
-    }
-
-    selectRouteService(serviceId){
+    expandRouteServiceDropdown(){
         this.getRouteServiceSelectionBtn().click(); // Click the dropdown button
         this.getDropdownSelectionExpand().should('exist'); // Ensure the dropdown is expanded
+    }
+
+    selectRouteServiceOptions(serviceId){
         this.getRouteServiceSelectionDropDownOption(serviceId).click(); // Click the dropdown option
-        this.checkRouteServiceInput(serviceId);
+    }
+
+    checkRouteServiceSelectionValueInput(serivceId){
+        this.getRouteServiceSelectionInput().invoke('val').should('contain', serivceId);
     }
 
     inputRouteTag(tag){
@@ -82,4 +84,4 @@ class RouteAddPage{
     }
 
 }
-export default RouteAddPage;
+export const routeAddPage = new RouteAddPage();
