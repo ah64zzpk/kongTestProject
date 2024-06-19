@@ -43,6 +43,10 @@ This is my task for the Kong test project.
    - More test details are exposed in `addService`, while for `addRoute`, these details are included in the domain action file.
    - Both approaches have pros and cons, so I have kept both.
 
+## Run in CI github action
+Push code to trigger a run in GitHub Actions:
+https://github.com/ah64zzpk/kongTestProject/actions
+
 ## Run Locally
 
 ```bash
@@ -50,3 +54,6 @@ git clone https://github.com/ah64zzpk/kongTestProject.git
 docker-compose up -d
 npm install
 npm run clean:reports && npm run cy:run
+
+
+
