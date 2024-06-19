@@ -11,7 +11,7 @@ This is my task for the Kong test project.
 
 ## Design of Test
 
-1. All tests are only for UI configuration checks; gateway function testing is not included.
+1. All tests are only for UI configuration checks; gateway function testing is not included, I orginally wanted to setup a testing app as a service that kong api gateway will forward client request to, so we have check request URL/headers/bodys that processed by kong API gateway in server side, but due to time constrains, I only performed UI configuration check.
 2. Some additional test scenarios are listed in `addService.cy.js` as placeholders and are currently skipped. I acknowledge there are many more scenarios to cover; these are just examples.
 
 ## Setup and Teardown
