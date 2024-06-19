@@ -34,13 +34,13 @@ describe('Kong Manager Route Page Test', () => {
         routeDomain.visitRouteOverviewPage();
         routeDomain.addFirstRoute();
         routeDomain.setRouteNameWithCheck(routeDataSet.name);
-        cy.log(`set route name with value ${routeDataSet.name}`);
+        cy.log(`Set route name with value ${JSON.stringify(routeDataSet.name)}`);
         routeDomain.selectRouteServiceWitchCheck(serviceIdSet);
         cy.log(`select service from dropdown option with id as ${serviceIdSet}`);
         routeDomain.setRouteTagWithCheck(routeDataSet.tag);
-        cy.log(`set route tag with value ${routeDataSet.tag}`);
+        cy.log(`Set route name with value ${JSON.stringify(routeDataSet.tag)}`);
         routeDomain.setRoutePathWithCheck(routeDataSet.path);
-        cy.log(`set route path with value ${routeDataSet.path}`);
+        cy.log(`Set route name with value ${JSON.stringify(routeDataSet.path)}`);
         routeDomain.saveRoute();
     })
 
